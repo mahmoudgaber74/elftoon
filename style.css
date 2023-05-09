@@ -1,0 +1,464 @@
+@font-face {
+  font-family: myfont;
+  src: url(fonts/Kufyan-Arabic-Black.otf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+body {
+  scroll-behavior: smooth;
+  height: 9000px;
+}
+
+body,
+button {
+  font-family: myfont;
+}
+
+.header {
+  width: 100%;
+  height: 20vh;
+}
+.header .header-nav {
+  width: 100%;
+  background-image: linear-gradient(to right, #424040, #171516);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: #e4c67d 0px 4px 0px 0px;
+  box-shadow: 0.5px 0.5px 4px #202020;
+  z-index: 9999;
+}
+.header .header-nav nav {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 80px;
+}
+.header .header-nav nav img {
+  display: block;
+  width: 30%;
+}
+.header .header-nav nav ul {
+  list-style: none;
+}
+@media screen and (max-width: 767px) {
+  .header .header-nav nav ul {
+    display: none;
+  }
+}
+.header .header-nav nav ul li {
+  display: inline-block;
+  padding: 0 20px;
+}
+.header .header-nav nav ul li a {
+  text-decoration: none;
+  color: #e4c67d;
+  font-size: 15px;
+  font-weight: lighter;
+  background: transparent;
+  position: relative;
+  transition: 0.5s ease;
+  padding: 5px;
+}
+.header .header-nav nav ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #e4c67d;
+  transition: 0.5s ease;
+}
+.header .header-nav nav ul li a:hover {
+  color: #171516;
+  transition-delay: 0.5s;
+}
+.header .header-nav nav ul li a:hover::before {
+  width: 100%;
+}
+.header .header-nav nav ul li a:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: #e4c67d;
+}
+.header .header-nav nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #e4c67d;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+.header .header-nav nav button {
+  color: #e4c67d;
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #e4c67d;
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 15px;
+  border-radius: 6px;
+  color: #e4c67d;
+  background-color: #202020;
+  box-shadow: 1px 1px 5px #e4c67d;
+}
+@media screen and (max-width: 992px) {
+  .header .header-nav nav button {
+    display: none;
+  }
+}
+.header .header-nav nav button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #e4c67d;
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+.header .header-nav nav button:hover {
+  color: #171516;
+}
+.header .header-nav nav button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+.header .header-nav nav button:active:before {
+  background: #e4c67d;
+  transition: background 0s;
+}
+
+.over-view {
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .over-view {
+    display: block;
+  }
+}
+.over-view .over-view-text {
+  margin-top: 60px;
+}
+@media screen and (max-width: 767px) {
+  .over-view .over-view-text {
+    margin-top: -10px;
+    text-align: center;
+  }
+}
+.over-view .over-view-text button {
+  display: inline-block;
+  margin-top: 50px;
+  width: 140px;
+  height: 40px;
+  background-color: #171516;
+  border: none;
+  color: white;
+  margin-right: 10px;
+  border-radius: 6px;
+  transition: all 1s;
+  font-size: 16px;
+}
+.over-view .over-view-text .play {
+  background-color: transparent;
+  border: 1px solid #171516;
+  color: #171516;
+}
+.over-view .over-view-text .play:hover {
+  background-color: #171516;
+  color: #fff;
+}
+.over-view .over-view-text .app:hover {
+  background-color: transparent;
+  color: #171516;
+  border: 1px solid #171516;
+}
+.over-view .over-view-imge {
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .over-view .over-view-imge {
+    display: none;
+  }
+}
+.over-view .over-view-imge .shap {
+  width: 300px;
+  height: 300px;
+  background-color: #171516;
+  margin-top: 50px;
+  border-radius: 30% 70% 57% 43%/41% 60% 40% 59%;
+}
+.over-view .over-view-imge .shap-img {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-image: url(/images/slider-one/mockup01-removebg-preview.png);
+  background-position: center;
+  background-size: cover;
+  top: 0;
+}
+.features {
+  text-align: center;
+  position: relative;
+}
+.features h2 {
+  position: absolute;
+  margin-top: -120px;
+  margin-right: 120px;
+}
+@media screen and (max-width: 767px) {
+  .features h2 {
+    margin-right: 50px;
+  }
+}
+.features h2 span {
+  display: inline-block;
+  width: 50px;
+  height: 5px;
+  background-color: #171516;
+}
+.features .all {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .features .all {
+    width: 60%;
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+.features .all div {
+  width: 200px;
+  height: 200px;
+  background-color: #e4c67d;
+  padding: 50px 10px;
+  text-align: center;
+  border-radius: 35px;
+  transform: 1s;
+}
+@media screen and (max-width: 767px) {
+  .features .all div {
+    margin-bottom: 20px;
+    width: 300px;
+  }
+}
+.features .all div:hover {
+  transform: rotate(5deg);
+}
+.features .all div ion-icon {
+  font-size: 35px;
+  color: #171516;
+}
+.features .all div span {
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #171516;
+  margin-right: 65px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 767px) {
+  .features .all div span {
+    margin-right: 110px;
+  }
+}
+.features .all .odd {
+  margin-top: -50px;
+}
+@media screen and (max-width: 767px) {
+  .features .all .odd {
+    margin-top: 0;
+  }
+}
+
+.prices1 {
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  height: 550px;
+}
+.prices1 h1 {
+  padding-right: 130px;
+  padding-top: 30px;
+}
+.prices1 h1 span {
+  display: inline-block;
+  width: 50px;
+  height: 5px;
+  background-color: #171516;
+}
+.prices1 .prices {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+}
+@media screen and (max-width: 767px) {
+  .prices1 .prices {
+    display: block;
+  }
+}
+.prices1 .prices div {
+  width: 30%;
+  height: 370px;
+  padding: 50px 20px;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #202020;
+}
+@media screen and (max-width: 767px) {
+  .prices1 .prices div {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+}
+.prices1 .prices div:hover {
+  transform: scale(1.1);
+}
+.prices1 .prices div .icons {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #e4c67d;
+}
+.prices1 .prices div p {
+  margin-top: 20px;
+}
+.prices1 .prices div button {
+  width: 90px;
+  height: 35px;
+  background-color: #e4c67d;
+  border: 1px solid #171516;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+.prices1 .prices div button:hover {
+  box-shadow: 1px 1px 3px #171516;
+}
+.prices1 .prices .center {
+  transform: scaleY(1.1);
+}
+
+.download-app {
+  width: 100%;
+  height: 300px;
+  background-color: #171516;
+  margin-top: 60px;
+  color: #fff;
+  display: flex;
+  padding: 10px 130px;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .download-app {
+    margin-top: 1000px;
+  }
+}
+.download-app .download-app-text {
+  width: 50%;
+}
+.download-app .download-app-text p {
+  padding: 20px 0;
+}
+.download-app button {
+  margin-top: 10px;
+  width: 140px;
+  height: 40px;
+  background-color: #171516;
+  border: 1px solid #fff;
+  color: white;
+  border-radius: 6px;
+  margin: 0 10px;
+}
+.download-app button:hover {
+  background-color: #fff;
+  color: #171516;
+  box-shadow: 1px 1px 5px #fff;
+}
+.download-app .download-app-imag {
+  width: 500px;
+  height: 300px;
+  background-image: url(/images/slider-one/download.png);
+  background-size: cover;
+  background-position: center;
+  border-left: 1px solid #e4c67d;
+}
+
+.counter {
+  width: 80%;
+  margin: auto;
+  margin-top: 80px;
+}
+.counter .counter-text {
+  text-align: center;
+}
+.counter .counter-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  text-align: center;
+}
+.counter .counter-count ion-icon {
+  font-size: 45px;
+}
+.counter .counter-count h2 {
+  font-size: 30px;
+}
+.counter .counter-count p {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #202020;
+}
+
+.swiper {
+  width: 90%;
+  height: 10%;
+}
+.swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 40px;
+}/*# sourceMappingURL=style.css.map */

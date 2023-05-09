@@ -1,0 +1,527 @@
+@font-face {
+    font-family: myfont;
+    src: url(fonts/Kufyan-Arabic-Black.otf);
+}
+
+$color-main: #e4c67d;
+$color-secn: #202020;
+$color-thir: #171516;
+$color-whit: #fff;
+$main-font: myfont;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+body {
+    scroll-behavior: smooth;
+    height: 9000px;
+    // background-color:$color-main;
+    // color: whitesmoke;
+}
+
+body,
+button {
+    font-family: $main-font
+}
+
+// start section header ************************************************************************
+.header {
+    width: 100%;
+    height: 20vh;
+
+    .header-nav {
+        width: 100%;
+        background-image: linear-gradient(to right, #424040, $color-thir);
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        box-shadow: $color-main 0px 4px 0px 0px;
+        box-shadow: 0.5px 0.5px 4px $color-secn;
+        z-index: 9999;
+
+        nav {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 80px;
+
+            img {
+                display: block;
+                width: 30%;
+            }
+
+            ul {
+                list-style: none;
+
+                @media screen and (max-width:767px) {
+                    display: none;
+                }
+
+                li {
+                    display: inline-block;
+                    padding: 0 20px;
+
+                    a {
+                        text-decoration: none;
+                        color: $color-main;
+                        font-size: 15px;
+                        font-weight: lighter;
+                        background: transparent;
+                        position: relative;
+                        transition: 0.5s ease;
+                        padding: 5px;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            height: 2px;
+                            width: 0;
+                            background-color: $color-main;
+                            transition: 0.5s ease;
+                        }
+
+                        &:hover {
+                            color: $color-thir;
+                            transition-delay: 0.5s;
+
+                            &::before {
+                                width: 100%;
+                            }
+
+                            &::after {
+                                height: 100%;
+                                transition-delay: 0.4s;
+                                color: $color-main;
+                            }
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            height: 0;
+                            width: 100%;
+                            background-color: $color-main;
+                            transition: .4s ease;
+                            z-index: -1;
+                        }
+                    }
+                }
+            }
+
+            button {
+                color: $color-main;
+                display: inline-block;
+                width: 130px;
+                height: 40px;
+                margin: 20px;
+                position: relative;
+                overflow: hidden;
+                border: 2px solid $color-main;
+                transition: color .5s;
+                z-index: 1;
+                font-size: 15px;
+                border-radius: 6px;
+                color: $color-main;
+                background-color: $color-secn;
+                box-shadow: 1px 1px 5px $color-main;
+
+                @media screen and (max-width:992px) {
+                    display: none;
+
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    background: $color-main;
+                    height: 150px;
+                    width: 200px;
+                    border-radius: 50%;
+                    top: 100%;
+                    left: 100%;
+                    transition: all .7s;
+                }
+
+                &:hover {
+                    color: $color-thir;
+
+                    &:before {
+                        top: -30px;
+                        left: -30px;
+                    }
+                }
+
+                &:active {
+                    &:before {
+                        background: $color-main;
+                        transition: background 0s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//start over view *******************************************************************************
+
+.over-view {
+    width: 80%;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width:767px) {
+        display: block;
+        
+    }
+
+    .over-view-text {
+        margin-top: 60px;
+
+        @media screen and (max-width:767px) {
+            margin-top: -10px;
+            text-align: center;
+            
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 50px;
+            width: 140px;
+            height: 40px;
+            background-color: $color-thir;
+            border: none;
+            color: white;
+            margin-right: 10px;
+            border-radius: 6px;
+            transition: all 1s;
+            font-size: 16px;
+        }
+
+        .play {
+            background-color: transparent;
+            border: 1px solid $color-thir;
+            color: $color-thir;
+
+            &:hover {
+                background-color: $color-thir;
+                color: $color-whit;
+            }
+        }
+
+        .app {
+            &:hover {
+                background-color: transparent;
+                color: $color-thir;
+                border: 1px solid $color-thir;
+            }
+        }
+    }
+
+    .over-view-imge {
+        position: relative;
+        @media screen and (max-width:767px) {
+            display: none;
+        }
+
+        .shap {
+            width: 300px;
+            height: 300px;
+            background-color: $color-thir;
+            margin-top: 50px;
+            border-radius: 30% 70% 57% 43% / 41% 60% 40% 59%;
+        }
+
+        .shap-img {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-image: url(/images/slider-one/mockup01-removebg-preview.png);
+            background-position: center;
+            background-size: cover;
+            top: 0;
+            @media screen and (max-width:767px) {
+                // position: relative;
+            }
+        }
+    }
+}
+
+// start features ********************************************************************************
+.features {
+    text-align: center;
+    position: relative;
+
+    h2 {
+        position: absolute;
+        margin-top: -120px;
+        margin-right: 120px;
+
+        @media screen and (max-width:767px) {
+            margin-right: 50px;
+        }
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 5px;
+            background-color: $color-thir;
+        }
+    }
+
+    .all {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width:767px) {
+            width: 60%;
+            display: block;
+            text-align: center;
+            margin: auto;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: $color-main;
+            padding: 50px 10px;
+            text-align: center;
+            border-radius: 35px;
+            transform: 1s;
+
+            @media screen and (max-width:767px) {
+                margin-bottom: 20px;
+                width: 300px;
+            }
+
+            &:hover {
+                transform: rotate(5deg);
+            }
+
+            ion-icon {
+                font-size: 35px;
+                color: $color-thir;
+            }
+
+            span {
+                display: block;
+                width: 50px;
+                height: 4px;
+                background-color: $color-thir;
+                margin-right: 65px;
+                margin-top: 20px;
+                @media screen and (max-width:767px) {
+                    margin-right: 110px;
+                }
+            }
+        }
+
+        .odd {
+            margin-top: -50px;
+
+            @media screen and (max-width:767px) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+// start prices **********************************************************************************
+.prices1 {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    height: 550px;
+
+    h1 {
+        // color: $color-whit;
+        padding-right: 130px;
+        padding-top: 30px;
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 5px;
+            background-color: $color-thir;
+        }
+    }
+
+    .prices {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 60px;
+        @media screen and (max-width:767px) {
+            display: block;
+        }
+
+        div {
+            width: 30%;
+            height: 370px;
+            padding: 50px 20px;
+            text-align: center;
+            transition: 0.5s ease-in-out;
+            border-radius: 6px;
+            color: $color-whit;
+            background-color:$color-secn ;
+
+            @media screen and (max-width:767px) {
+                width: 80%;
+                margin: auto;
+                margin-bottom: 40px;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icons {
+                font-size: 40px;
+                margin-bottom: 10px;
+                color: $color-main;
+            }
+
+            p {
+                margin-top: 20px;
+            }
+
+            button {
+                width: 90px;
+                height: 35px;
+                background-color: $color-main;
+                border: 1px solid $color-thir;
+                border-radius: 5px;
+                margin-top: 20px;
+                text-align: center;
+
+                &:hover {
+                    box-shadow: 1px 1px 3px $color-thir;
+                }
+            }
+        }
+        .center{
+            transform: scaleY(1.1);
+        }
+    }
+}
+
+// start down load ******************************************************************************
+.download-app {
+    width: 100%;
+    height: 300px;
+    background-color: $color-thir;
+    margin-top: 60px;
+    color: $color-whit;
+    display: flex;
+    padding: 10px 130px;
+    align-items: center;
+    @media screen and (max-width:767px) {
+        margin-top: 1000px;
+    }
+    .download-app-text {
+        width: 50%;
+
+        p {
+            padding: 20px 0;
+        }
+    }
+
+    button {
+        margin-top: 10px;
+        width: 140px;
+        height: 40px;
+        background-color: $color-thir;
+        border: 1px solid $color-whit;
+        color: white;
+        border-radius: 6px;
+        margin: 0 10px;
+
+        &:hover {
+            background-color: $color-whit;
+            color: $color-thir;
+            box-shadow: 1px 1px 5px $color-whit;
+        }
+    }
+
+    .download-app-imag {
+        width: 500px;
+        height: 300px;
+        background-image: url(/images/slider-one/download.png);
+        background-size: cover;
+        background-position: center;
+        border-left: 1px solid $color-main;
+    }
+}
+
+// start counter ********************************************************************************
+
+.counter {
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+
+    .counter-text {
+        text-align: center;
+    }
+
+    .counter-count {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 50px;
+        text-align: center;
+
+        ion-icon {
+            font-size: 45px;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 12px;
+            font-weight: lighter;
+            color: $color-secn;
+        }
+    }
+}
+
+// star slider *********************************************************************************
+.swiper {
+    width: 90%;
+    height: 10%;
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h2 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 40px;
+    }
+}
